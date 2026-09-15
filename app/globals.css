@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=IM+Fell+English:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..800&family=Pirata+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --parchment: #e2dedb;
+  --bone: #cdc6be;
+  --ink: #1d1d1b;
+  --charcoal: #69645f;
+  --pureblack: #000000;
+  --ember: #c03f13;
+
+  --font-display: "Bodoni MT Poster Compressed", "Bodoni Poster Compressed", "Bodoni Moda", serif;
+  --font-serif: 'Newsreader', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-accent: 'Pirata One', 'IM Fell English', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--parchment);
+  color: var(--ink);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Editorial Newspaper Selection */
+::selection {
+  background-color: var(--ink);
+  color: var(--parchment);
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--parchment);
+  border-left: 1px solid var(--ink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ink);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--charcoal);
+}
+
+/* Subtle Paper Texture Overlay */
+.paper-grain {
+  background-image: radial-gradient(rgba(29, 29, 27, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Sharp Editorial Geometry */
+.sharp {
+  border-radius: 0px !important;
+}
+
+/* Editorial Broadsheet Borders */
+.border-ink {
+  border-color: var(--ink);
+}
+
+.border-bone {
+  border-color: var(--bone);
+}
+
+/* Print Shadow */
+.shadow-print {
+  box-shadow: rgba(29, 29, 27, 0.2) -4px 4px 6px 0px;
+}
+
+.shadow-print-lg {
+  box-shadow: rgba(29, 29, 27, 0.28) -6px 6px 12px 0px;
+}
+
+.shadow-hard {
+  box-shadow: 4px 4px 0px 0px var(--ink);
+}
+
+.shadow-hard-hover {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shadow-hard-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--ink);
+}
+
+/* Miranda Display & Bold Headings - Bodoni MT Poster Compressed */
+.font-display,
+h1, h2, h3, h4, h5, h6,
+.font-display-compressed {
+  font-family: "Bodoni MT Poster Compressed", "Bodoni Poster Compressed", "Bodoni Moda", serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+.text-display-giant {
+  font-family: "Bodoni MT Poster Compressed", "Bodoni Poster Compressed", "Bodoni Moda", serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  line-height: 0.88;
+}
+
+.text-display-hero {
+  font-family: "Bodoni MT Poster Compressed", "Bodoni Poster Compressed", "Bodoni Moda", serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 0.92;
+}
+
+.text-display-editorial {
+  font-family: "Bodoni MT Poster Compressed", "Bodoni Poster Compressed", "Bodoni Moda", serif;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+/* Large Drop Cap */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  line-height: 0.78;
+  padding-top: 6px;
+  padding-right: 14px;
+  padding-bottom: 2px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+/* Wax Seal / Legal Stamp Badge */
+.legal-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--ember);
+  color: var(--ember);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2.88px;
+  background-color: rgba(192, 63, 19, 0.05);
+}
+
+/* Editorial Underline Hover */
+.editorial-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.editorial-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1.5px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--ink);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.editorial-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
